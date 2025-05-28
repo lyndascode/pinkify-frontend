@@ -1,0 +1,685 @@
+/* index.css */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* App.css */
+.card {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+/* ArtistDetail.css */
+.artist-details {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.artist-details h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.artist-details img {
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.artist-details p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.artist-details strong {
+    color: #2c3e50;
+}
+
+.artist-details a {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.artist-details a:hover {
+    color: #2980b9;
+}
+
+/* ArtistsPage.css */
+.artists-page {
+    padding: 2rem;
+}
+
+.artists-page h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.artists-page h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #3498db;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* ConcertDetail.css */
+.concert-details {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.concert-details h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.concert-details img {
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.concert-details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.concert-details strong {
+    color: #2c3e50;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* ConcertPage.css */
+.ConcertPage {
+    padding: 2rem;
+}
+
+.ConcertPage header {
+    margin-bottom: 2rem;
+}
+
+.ConcertPage h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+/* Dashboard.css */
+.dashboard-nav {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.dashboard-nav button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: #ecf0f1;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #7f8c8d;
+}
+
+.dashboard-nav button.active {
+    background: #3498db;
+    color: white;
+}
+
+.dashboard-nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* HomePage.css */
+.homepage {
+    padding-bottom: 2rem;
+}
+
+.main-section {
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-section h2 {
+    color: #2c3e50;
+    margin: 2rem 0 1rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.main-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #3498db;
+    margin-top: 5px;
+}
+
+/* Login.css */
+/* Assuming LoginForm has its own styling */
+.login-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+
+/* ConcertCard.css */
+.concert-card {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.concert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.concert-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.concert-info {
+    padding: 1.2rem;
+    position: relative;
+}
+
+.concert-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.concert-location,
+.concert-date,
+.concert-price {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.concert-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+
+}
+
+.concert-link:hover {
+    background: #2980b9;
+}
+
+.favorite-icon,
+.delete-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #e74c3c;
+    transition: all 0.3s ease;
+}
+
+.favorite-icon {
+    right: 3.5rem;
+    color: #7f8c8d;
+}
+
+.favorite-icon.filled,
+.favorite-icon:hover {
+    color: #e74c3c;
+}
+
+.delete-icon:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .concert-card img {
+        height: 160px;
+    }
+}
+
+/* ConcertList.css */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ArtistCard.css */
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.2rem;
+    position: relative;
+}
+
+.card-title {
+    margin: 0 0 0.5rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.card-subtext {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.card-subtext a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    background: #2980b9;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.favorite-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.favorite-icon.filled,
+.favorite-icon:hover {
+    color: #e74c3c;
+}
+
+/* ArtistList.css */
+.artist-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 480px) {
+    .artist-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* AdminForms.css */
+.admin-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 1rem auto;
+}
+
+.admin-form h4 {
+    margin-top: 0;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.admin-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.admin-form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.admin-form button:hover {
+    background: #2980b9;
+}
+
+
+/* AdminPanel.css */
+.admin-panel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.admin-section-title {
+    text-align: center;
+    color: #2c3e50;
+    margin: 2rem 0 1rem;
+    position: relative;
+}
+
+.admin-section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: #3498db;
+    margin: 0.5rem auto;
+}
+
+.admin-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-tabs button {
+    padding: 0.7rem 1.5rem;
+    background: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-tabs button.active-tab {
+    background: #3498db;
+    color: white;
+}
+
+.admin-tabs button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .admin-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* FavoriteArtists.css */
+.favorite-artists-widget {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-artists-widget h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.widget-card {
+    margin-top: 1rem;
+}
+
+.widget-card ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.widget-card li {
+    padding: 0.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.widget-card li strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* FavoriteConcertCard.css */
+.card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+
+.card img {
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-title {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.card-subtext {
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}

@@ -5,9 +5,13 @@ function ArtistList() {
     const [artists, setArtists] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+
+    console.log(`${import.meta.env.VITE_API_URL}/api/users/favorites/artists/${artists._id}`);
     useEffect(() => {
         axios
-            .get(`${import.meta.env.VITE_API_URL}/api/artists `)
+            .get(`${import.meta.env.VITE_API_URL}/api/artists`)
+
+
             .then((res) => {
                 setArtists(res.data);
                 setIsLoading(false);

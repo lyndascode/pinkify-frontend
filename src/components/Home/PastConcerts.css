@@ -1,0 +1,57 @@
+:root {
+    --pink: #ff5ea3;
+    --bg-light: #fdfdfd;
+    --text-dark: #1e1e1e;
+    --text-light: #666;
+    --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    --radius: 16px;
+}
+
+.past-concerts {
+
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.past-concerts h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.past-concerts p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.concerts-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.concert-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.concert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.concert-card img {
+    width: auto;
+    height: 200px;
+
+    border-bottom: 1px solid #eee;
+}

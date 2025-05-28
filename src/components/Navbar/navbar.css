@@ -1,0 +1,25 @@
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+}
+
+.navbar-links {
+
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: rgb(0, 0, 0);
+
+}
+
+.logo {
+    color: rgb(255, 81, 162);
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
+}

@@ -1,0 +1,98 @@
+/* CreateForm.css */
+
+.admin-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #2a2a42;
+    border-radius: 12px;
+    color: white;
+}
+
+.admin-form h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ff5c8d;
+    margin-bottom: 1.5rem;
+}
+
+.admin-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a2e;
+    color: white;
+}
+
+.admin-form input:focus {
+    outline: 2px solid #ff5c8d;
+}
+
+.admin-form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #ff5c8d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.admin-form button:hover {
+    background: #ff4785;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+
+/* Add to CreateForm.css */
+
+/* Reuses existing .admin-form styles */
+.admin-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a2e;
+    color: white;
+    min-height: 100px;
+    resize: vertical;
+    /* Allows vertical resize only */
+    font-family: inherit;
+    /* Matches other inputs */
+}
+
+/* Social links section styling */
+.social-inputs {
+    margin: 1rem 0;
+}
+
+.social-inputs label {
+    display: block;
+    color: #d1d1e0;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .admin-form {
+        padding: 1rem;
+    }
+
+    textarea {
+        min-height: 80px;
+    }
+}

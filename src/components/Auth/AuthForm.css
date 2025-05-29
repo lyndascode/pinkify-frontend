@@ -1,0 +1,96 @@
+/* AuthForm.css - Unified Styling */
+
+/* Shared Form Styles */
+.login-form-container,
+.signup-form-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #2a2a42;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.login-form,
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+h2 {
+    color: #ff5c8d;
+    margin-bottom: 1rem;
+}
+
+/* Form Groups */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+label {
+    color: #d1d1e0;
+    font-size: 0.9rem;
+}
+
+input {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a2e;
+    color: white;
+}
+
+/* Buttons */
+.submit-btn {
+    background: #ff5c8d;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    background: #ff4785;
+    transform: translateY(-2px);
+}
+
+/* Role Selector */
+select {
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Links */
+a {
+    color: #ff8fab;
+    text-decoration: none;
+}
+
+/* Error Messages */
+.error-message {
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .login-form-container,
+    .signup-form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}

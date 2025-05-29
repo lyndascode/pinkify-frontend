@@ -1,0 +1,138 @@
+/* FavoriteConcerts.css */
+.favorite-concerts {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(42, 42, 66, 0.4);
+    border-radius: 12px;
+}
+
+.favorite-concerts h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #ff8fab;
+    background: linear-gradient(to right, #ff5c8d, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.favorite-concerts p {
+    color: #d1d1e0;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.favorite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.favorite-card {
+    transition: transform 0.3s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Loading and Error States */
+.favorite-concerts .loading,
+.favorite-concerts .error {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(42, 42, 66, 0.5);
+    border-radius: 8px;
+    color: #d1d1e0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .favorite-concerts {
+        padding: 1rem;
+    }
+
+    .favorite-concerts h2 {
+        font-size: 1.5rem;
+    }
+
+    .favorite-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorite-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FavoriteArtists.css */
+.favorite-artists-widget {
+    padding: 1.5rem;
+    background: rgba(42, 42, 66, 0.4);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.favorite-artists-widget h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #ff8fab;
+    background: linear-gradient(to right, #ff5c8d, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.widget-card {
+    margin-top: 1rem;
+}
+
+.favorite-artists-widget ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+
+.favorite-artists-widget>p {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(42, 42, 66, 0.5);
+    border-radius: 8px;
+    color: #d1d1e0;
+}
+
+/* Loading and Error States */
+.favorite-artists-widget .loading,
+.favorite-artists-widget .error {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(42, 42, 66, 0.5);
+    border-radius: 8px;
+    color: #d1d1e0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .favorite-artists-widget {
+        padding: 1rem;
+    }
+
+    .favorite-artists-widget h3 {
+        font-size: 1.5rem;
+    }
+
+    .favorite-artists-widget ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorite-artists-widget ul {
+        grid-template-columns: 1fr;
+    }
+}

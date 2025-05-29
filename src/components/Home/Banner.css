@@ -1,0 +1,90 @@
+/* Banner - Simplified Version */
+
+/* Container */
+.banner-container {
+    position: relative;
+    height: 500px;
+    /* Single height for all screens */
+    overflow: hidden;
+}
+
+/* Background Image */
+.banner-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image covers area */
+}
+
+/* Dark Overlay */
+.banner-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Darker overlay for better contrast */
+}
+
+/* Text Content */
+.banner-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* Headline */
+.banner-text h1 {
+    font-size: 2.5rem;
+    color: #ff5c8d;
+    /* Your pink color */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtext */
+.banner-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+/* Button */
+.banner-button {
+    background: #ff5c8d;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    /* Fully rounded */
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.banner-button:hover {
+    background: #ff4785;
+    transform: scale(1.05);
+}
+
+/* Tablet+ Screens */
+@media (min-width: 768px) {
+    .banner-container {
+        height: 600px;
+    }
+
+    .banner-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .banner-text p {
+        font-size: 1.3rem;
+    }
+}

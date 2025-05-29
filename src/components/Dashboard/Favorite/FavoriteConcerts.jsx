@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import FavoriteConcertCard from "./FavoriteConcertCard";
+import ConcertCard from "../../Concert/ConcertCard";
+import './Favorite.css';
 
 function FavoriteConcerts() {
     const [favorites, setFavorites] = useState([]);
@@ -41,7 +43,7 @@ function FavoriteConcerts() {
             <div className="favorite-grid">
                 {favorites.map((concert) => (
                     <div className="favorite-card" key={concert._id}>
-                        <FavoriteConcertCard concert={concert} />
+                        <ConcertCard concert={concert} />
                     </div>
                 ))}
             </div>

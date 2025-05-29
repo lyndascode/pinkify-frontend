@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ArtistCard from "./ArtistCard";
-function ArtistList() {
+import './Artist.css';
+
+function ArtistList({ isAdmin }) {
     const [artists, setArtists] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-    console.log(`${import.meta.env.VITE_API_URL}/api/users/favorites/artists/${artists._id}`);
     useEffect(() => {
-        axios
-            .get(`${import.meta.env.VITE_API_URL}/api/artists`)
-
-
+        axios.get(`${import.meta.env.VITE_API_URL}/api/artists`)
             .then((res) => {
                 setArtists(res.data);
                 setIsLoading(false);
@@ -22,23 +19,41 @@ function ArtistList() {
             });
     }, []);
 
-
-    const handleDeleteFromList = () => {
-
+    const handleDeleteFromList = (idToDelete) => {
+        const newListArtist = artists.filter((artist) => artist._id !== idToDelete);
+        setArtists(newListArtist);
     }
 
-    if (isLoading) return <p>Loading artists...</p>;
-
     return (
-        <div className="artist-list">
-            {artists.length === 0 ? (
-                <p>No artists found</p>
+        <section className="artist-list">
+            <div className="artist-list-header">
+                <h2>K-pop Artists Spotlight</h2>
+                <p>Discover your favorite K-pop stars and rising talents</p>
+            </div>
+
+            {isLoading ? (
+                <div className="loading-spinner">
+                    <div className="spinner"></div>
+                    <p>Loading artists...</p>
+                </div>
+            ) : artists.length === 0 ? (
+                <div className="no-artists">
+                    <p>No artists found</p>
+                    <div className="pinkify-icon">🌟</div>
+                </div>
             ) : (
-                artists.map((artist) => (
-                    <ArtistCard key={artist._id} artist={artist} onDelete={handleDeleteFromList} />
-                ))
+                <div className="artist-grid">
+                    {artists.map((artist) => (
+                        <ArtistCard
+                            key={artist._id}
+                            artist={artist}
+                            isAdmin={isAdmin}
+                            onDelete={handleDeleteFromList}
+                        />
+                    ))}
+                </div>
             )}
-        </div>
+        </section>
     );
 }
 

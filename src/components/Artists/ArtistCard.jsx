@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // npm install react-icons
 import { useState } from "react";
 import axios from "axios";
-function ArtistCard({ artist }) {
+import './Artist.css';
+import { FaTrashAlt } from "react-icons/fa";
+
+
+function ArtistCard({ artist, isAdmin, onDelete }) {
 
     const [isFavorited, setIsFavorited] = useState(false);
 
@@ -23,31 +27,44 @@ function ArtistCard({ artist }) {
             });
     };
 
+
+    const handleDelete = () => {
+        const token = localStorage.getItem("authToken"); //for the server to know me 
+        console.log("artist ID used in delete:", artist._id);
+        axios.delete(`${import.meta.env.VITE_API_URL}/api/artists/${artist._id}`, { headers: { Authorization: `Bearer ${token}` } })
+            .then((res) => {
+                console.log({ message: "this is res:", res });
+
+                {/*we already filtered the new list to let just the artists that wont be deleted, now we should update with onDelete with asking parent  ? */ }
+                onDelete(artist._id);//asks the parent to delete me from the list 
+
+            })
+            .catch((err) => {
+                console.error("Error deleting:", err);
+            });
+
+    }
+
+
     return (
-        <div className="card">
+
+        <div className="concert-card">
+
+
             {artist.image && (
                 <img src={artist.image} alt={artist.name} />
             )}
 
-            <div className="card-content">
-                <h3 className="card-title">{artist.name}</h3>
-                <p className="card-subtext"><strong>Genre:</strong> {artist.genre}</p>
-                <p className="card-subtext">{artist.bio}</p>
+            <div className="concert-info">
+                <h3>{artist.name}</h3>
+                <p className="concert-location"> {artist.genre}</p>
+                <p className="concert-date">{artist.bio}</p>
 
-                {artist.socialLinks && (
-                    <div className="card-subtext">
-                        {artist.socialLinks.instagram && (
-                            <p>
-                                IG: <a href={artist.socialLinks.instagram} target="_blank" rel="noreferrer">{artist.socialLinks.instagram}</a>
-                            </p>
-                        )}
-                        {artist.socialLinks.youtube && (
-                            <p>
-                                YouTube: <a href={artist.socialLinks.youtube} target="_blank" rel="noreferrer">{artist.socialLinks.youtube}</a>
-                            </p>
-                        )}
-                    </div>
-                )}
+
+                <Link to={`/artists/${artist._id}`} className="concert-link">
+                    Details
+                </Link>
+
 
                 <button
                     className="favorite-icon"
@@ -56,11 +73,16 @@ function ArtistCard({ artist }) {
                 >
                     {isFavorited ? <FaHeart className="filled" /> : <FaRegHeart />}
                 </button>
-                <Link className="button mt-4" to={`/artists/${artist._id}`}>
-                    See Profile
-                </Link>
+                {/*if isAdmin true  display the delete button */}
+                {isAdmin && (
+                    <button onClick={handleDelete} className="delete-icon" aria-label="Delete concert">
+                        <FaTrashAlt />
+                    </button>
+                )}
             </div>
         </div>
+
+
     );
 }
 

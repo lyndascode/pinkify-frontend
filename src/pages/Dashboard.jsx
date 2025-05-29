@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import FavoriteArtists from "../components/Dashboard/FavoriteArtists";
-import FavoriteConcerts from "../components/Dashboard/FavoriteConcerts";
+import FavoriteArtists from "../components/Dashboard/Favorite/FavoriteArtists";
+import FavoriteConcerts from "../components/Dashboard/Favorite/FavoriteConcerts";
 import UserProfile from "../components/Dashboard/UserProfile";
-import AdminPanel from "../components/Dashboard/AdminPannel";
+import AdminPanel from "../components/Admin/AdminPannel";
+import './Dashoard.css';
 
 function Dashboard() {
     const [userData, setUserData] = useState(null);
     const [activeTab, setActiveTab] = useState("favorites");
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('authToken'); //to know : is the person connected ? 
+        const token = localStorage.getItem('authToken');
         if (!token) {
-            navigate('/login'); //If not connected go back to homepage 
+            navigate('/login');
             return;
         }
 
@@ -22,52 +24,65 @@ function Dashboard() {
             .get(`${import.meta.env.VITE_API_URL}/api/users/me`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
-            .then((res) => setUserData(res.data))
+            .then((res) => {
+                setUserData(res.data);
+                setIsLoading(false);
+            })
             .catch((err) => {
                 console.error('Error fetching user data:', err);
                 navigate('/login');
             });
     }, [navigate]);
 
-    if (!userData) return <p>Loading...</p>;
+    if (isLoading) return (
+        <div className="dashboard-loading">
+            <div className="spinner"></div>
+            <p>Loading your K-pop dashboard...</p>
+        </div>
+    );
 
-    const isAdmin = userData.role === "admin";// this is the famous admin access verifier , he lets you see admin if you are one 
+    const isAdmin = userData.role === "admin";
 
     return (
-        <div className="section">
-            <h2 className="text-center">  Welcome, {userData.name}!</h2>
-            <p className="text-center">Manage your profile, favorite concerts, and more.</p>
+        <div className="dashboard">
+            <div className="dashboard-header">
+                <h2>Welcome back, {userData.name}! <span className="pink-heart">♥</span></h2>
+                <p>Manage your K-pop journey with Pinkify</p>
+            </div>
 
-            {/* Onglets / navigation du dashboard */}
-            <nav className="dashboard-nav">
-                {  /*favorite button */}
-                <button className={activeTab === "favorites" ? "active" : ""} onClick={() => setActiveTab("favorites")}>
-                    Favorites
+            {/* Navigation Tabs */}
+            <nav className="dashboard-tabs">
+                <button
+                    className={`tab-button ${activeTab === "favorites" ? "active" : ""}`}
+                    onClick={() => setActiveTab("favorites")}
+                >
+                    My Favorites
                 </button>
-                {/*profile button */}
-                <button className={activeTab === "profile" ? "active" : ""} onClick={() => setActiveTab("profile")}>
-                    Profile
+                <button
+                    className={`tab-button ${activeTab === "profile" ? "active" : ""}`}
+                    onClick={() => setActiveTab("profile")}
+                >
+                    My Profile
                 </button>
-
-                {/* if is an admin let him see the admin board: admin button appear, click and see admin board   */}
                 {isAdmin && (
-                    <button className={activeTab === "admin" ? "active" : ""} onClick={() => setActiveTab("admin")} >
-                        Admin
+                    <button
+                        className={`tab-button ${activeTab === "admin" ? "active" : ""}`}
+                        onClick={() => setActiveTab("admin")}
+                    >
+                        Admin Panel
                     </button>
                 )}
             </nav>
 
-            {/* So now here after clicking on the button, what to render ?  */}
-            <div className="dashboard-content"> {/* if favorite is clicked, then show this */}
+            {/* Content Area */}
+            <div className="dashboard-content">
                 {activeTab === "favorites" && (
-                    <>
-                        <FavoriteConcerts favorites={userData.favourites} />
-                        <FavoriteArtists favoriteArtists={userData.favoriteArtists} />
-                    </>
+                    <div className="favorites-container">
+                        <FavoriteConcerts />
+                        <FavoriteArtists />
+                    </div>
                 )}
-                {/* if profile is clicked then render userProfile  */}
                 {activeTab === "profile" && <UserProfile user={userData} />}
-                {/* if admin is clicked then render adminPannel  */}
                 {activeTab === "admin" && isAdmin && <AdminPanel />}
             </div>
         </div>

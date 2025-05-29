@@ -1,4 +1,4 @@
-
+import './User.css';
 
 function UserProfile({ user }) {
     if (!user) return <p>Loading user info...</p>;

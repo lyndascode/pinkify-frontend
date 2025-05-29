@@ -1,0 +1,149 @@
+/* Dashboard.css */
+
+.dashboard {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: white;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.dashboard-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ff8fab;
+    background: linear-gradient(to right, #ff5c8d, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.dashboard-header p {
+    font-size: 1.2rem;
+    color: #d1d1e0;
+}
+
+.pink-heart {
+    color: #ff5c8d;
+    animation: pulse 1.5s infinite;
+}
+
+/* Tabs Navigation */
+.dashboard-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 0.8rem 1.5rem;
+    background: rgba(42, 42, 66, 0.7);
+    border: none;
+    border-radius: 30px;
+    color: #d1d1e0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.tab-button:hover {
+    background: rgba(255, 92, 141, 0.2);
+    color: white;
+}
+
+
+/* Content Area */
+
+.favorites-container {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Loading State */
+.dashboard-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 92, 141, 0.3);
+    border-radius: 50%;
+    border-top-color: #ff5c8d;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1.5rem;
+    }
+
+    .dashboard-header h2 {
+        font-size: 2rem;
+    }
+
+    .dashboard-tabs {
+        gap: 0.5rem;
+    }
+
+    .tab-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .dashboard-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-button {
+        width: 100%;
+        max-width: 250px;
+    }
+}

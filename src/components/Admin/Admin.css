@@ -1,0 +1,76 @@
+/* Admin.css */
+
+.admin-panel {
+    padding: 2rem;
+    color: white;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.admin-section-title {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: #ff8fab;
+    background: linear-gradient(to right, #ff5c8d, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.admin-tabs button {
+    padding: 0.8rem 1.5rem;
+    background: rgba(42, 42, 66, 0.7);
+    border: none;
+    border-radius: 30px;
+    color: #d1d1e0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-tabs button:hover {
+    background: rgba(255, 92, 141, 0.2);
+    color: white;
+}
+
+.admin-tabs .active-tab {
+    background: linear-gradient(to right, #ff5c8d, #ff8fab);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 92, 141, 0.3);
+}
+
+.admin-content {
+    background: rgba(42, 42, 66, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-panel {
+        padding: 1.5rem;
+    }
+
+    .admin-section-title {
+        font-size: 1.5rem;
+    }
+
+    .admin-tabs {
+        gap: 0.5rem;
+    }
+
+    .admin-tabs button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}

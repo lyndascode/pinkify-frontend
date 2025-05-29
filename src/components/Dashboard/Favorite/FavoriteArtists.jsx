@@ -1,7 +1,9 @@
 // src/components/FavoriteArtists.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import FavoriteArtistCard from "./FavoriteArtistCard";
+import ArtistCard from "../../Artists/ArtistCard";
+import './Favorite.css';
 function FavoriteArtists() {
     const [favoriteArtists, setFavoriteArtists] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -38,14 +40,9 @@ function FavoriteArtists() {
                 <div className="widget-card">
                     <ul>
                         {favoriteArtists.map((artist) => (
-                            <li key={artist._id}>
-                                <strong>{artist.name}</strong> <br />
-                                <img
-                                    src={artist.image}
-                                    alt={artist.name}
-                                    style={{ width: "100%", maxWidth: "120px", height: "auto", objectFit: "cover", borderRadius: "8px" }}
-                                />
-                            </li>
+                            <div className="favorite-card" key={artist._id}>
+                                <ArtistCard artist={artist} />
+                            </div>
                         ))}
                     </ul>
                 </div>

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import AddConcertForm from "./AddConcertForm";
-import AddArtistForm from "./AddArtistForm";
+import AddConcertForm from "../Dashboard/Create Form/AddConcertForm";
+import AddArtistForm from "../Dashboard/Create Form/AddArtistForm";
 import ConcertList from "../Concert/ConcertList";
 import ArtistList from "../Artists/ArtistList";
-
+import './Admin.css'
 function AdminPanel() {
     const [activeForm, setActiveForm] = useState(null); //  concert  ou  artist 
 
@@ -34,7 +34,7 @@ function AdminPanel() {
 
             <h3 className="admin-section-title">  Add a New Concert & Artist</h3>
 
-            {/* Form Selector */}
+
             <div className="admin-tabs">
                 <button
                     className={activeForm === "concert" ? "active-tab" : ""}

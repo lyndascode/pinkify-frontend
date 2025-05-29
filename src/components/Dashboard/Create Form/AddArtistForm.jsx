@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import './CreateForm.css';
 function AddArtistForm() {
     const [formData, setFormData] = useState({
         name: "",

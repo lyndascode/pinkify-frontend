@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import './AuthForm.css';
 function LoginForm() {
     const [formData, setFormData] = useState({ email: "", password: "", role: "user" });
     const [errorMessage, setErrorMessage] = useState("");

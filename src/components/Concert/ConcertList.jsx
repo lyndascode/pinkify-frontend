@@ -1,45 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ConcertCard from "./ConcertCard";
+import './Concert.css';
 
 function ConcertList({ isAdmin }) {
-    //we need usestate because the list of events will change with time
-    // so there is a need to store data 
     const [concerts, setConcerts] = useState([]);
-    //[concerts] = [  ] ← concerts starts empty
-    //  setConcerts(res.data)  <-- fills the box concerts with data fetched by axios
-    useEffect(() => {
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/api/concerts`)
-            .then((res) => { setConcerts(res.data) })
+            .then((res) => {
+                setConcerts(res.data);
+                setIsLoading(false);
+            })
             .catch((err) => {
                 console.error("Error fetching concerts:", err);
             })
     }, []);
 
     const handleDeleteFromList = (idToDelete) => {
-
-        // we first create a new list WITHOUT the concert that has the matching _id
-
-        const newListConcert = concerts.filter((concert) => concert._id !== idToDelete);// if the concerts id does not match the id we want to delete, then we keep it and add it to newListConcert
-
-        setConcerts(newListConcert); //we update the newlist with each id that is not the one to delete 
-
+        const newListConcert = concerts.filter((concert) => concert._id !== idToDelete);
+        setConcerts(newListConcert);
     }
-    return (
-        <section className="section">
-            <h2 className="text-center">  Upcoming K-pop Concerts</h2>
-            <p className="text-center">Stay tuned for the hottest K-pop events coming to your city!</p>
 
-            {concerts.length === 0 ? (
-                <p className="text-center">No concerts found.</p>
+    return (
+        <section className="concert-list">
+            <div className="concert-list-header">
+                <h2>Upcoming K-pop Concerts</h2>
+                <p>Stay tuned for the hottest K-pop events coming to your city!</p>
+            </div>
+
+            {isLoading ? (
+                <div className="loading-spinner">
+                    <div className="spinner"></div>
+                    <p>Loading concerts...</p>
+                </div>
+            ) : concerts.length === 0 ? (
+                <div className="no-concerts">
+                    <p>No upcoming concerts found</p>
+                    <div className="pinkify-icon">🎤</div>
+                </div>
             ) : (
-                <div className="card-grid">
+                <div className="concert-grid">
                     {concerts.map((concert) => (
-                        <div key={concert._id}>
-                            <ConcertCard concert={concert} isAdmin={isAdmin} onDelete={handleDeleteFromList} /> {/*je  dois passer la même prop que je reçois
-                                                                                                                    je  reçois isAdmin, donc je le donne  à chaque carte.*/}
-                        </div>
+                        <ConcertCard
+                            key={concert._id}
+                            concert={concert}
+                            isAdmin={isAdmin}
+                            onDelete={handleDeleteFromList}
+                        />
                     ))}
                 </div>
             )}

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // npm install react-icons
-
+import './Concert.css';
 import { FaTrashAlt } from "react-icons/fa";
 
 
@@ -43,14 +43,16 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
             });
 
     }
+    console.log(concert)
 
+    console.log(concert.image)
 
     return (
         <div className="concert-card">
 
 
 
-            <img src={concert.image} alt={concert.title} />
+            <img src={concert.image} alt={concert.title} /> {/*  i did console log its not empty , ConcertCard.jsx:55 An empty string ("") was passed to the src attribute. This may cause the browser to download the whole page again over the network. To fix this, either do not render the element at all or pass null to src instead of an empty string. */}
             <div className="concert-info">
                 <h3>{concert.title}</h3>
                 <p className="concert-location">📍 {concert.location}</p>
@@ -81,3 +83,9 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
 }
 
 export default ConcertCard;
+
+
+
+
+
+

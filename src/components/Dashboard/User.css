@@ -1,0 +1,63 @@
+/* UserProfile.css */
+
+/* Main card styling - matches your concert cards */
+.user-profile-card {
+    background: #2a2a42;
+    /* Dark background */
+    border-radius: 12px;
+    /* Rounded corners */
+    padding: 2rem;
+    color: white;
+    max-width: 600px;
+    /* Limits width for better readability */
+    margin: 0 auto;
+    /* Centers card */
+}
+
+/* Header with gradient text - matches your other headers */
+.user-profile-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ff5c8d, #ffb6c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Grid layout for user info */
+.user-info {
+    display: grid;
+    gap: 1.2rem;
+    /* Space between info rows */
+}
+
+/* Label styling for metadata */
+.label {
+    color: #b8b8d1;
+    /* Light gray */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Role tags - admin gets special pink styling */
+.role-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.role-tag.admin {
+    background: rgba(255, 92, 141, 0.2);
+    color: #ff5c8d;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .user-profile-card {
+        padding: 1.5rem;
+    }
+
+    .user-profile-card h3 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,68 @@
+/* EditConcert.css */
+.edit-concert-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #2a2a42;
+    border-radius: 12px;
+    color: white;
+}
+
+.edit-concert-container h2 {
+    color: #ff5c8d;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.edit-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.edit-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #d1d1e0;
+}
+
+.edit-form-group input,
+.edit-form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: #1a1a2e;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.save-button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #4CAF50;
+    /* Green for save action */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-button:hover {
+    background: #3e8e41;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-concert-container {
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+}

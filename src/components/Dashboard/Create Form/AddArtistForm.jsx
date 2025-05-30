@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import './CreateForm.css';
+import { toast } from "react-toastify";
+
 function AddArtistForm() {
     const [formData, setFormData] = useState({
         name: "",
@@ -21,7 +23,7 @@ function AddArtistForm() {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(res => {
-                alert("Artist added!");
+                toast.success(" Artist added!");
                 setFormData({
                     name: "",
                     genre: "",

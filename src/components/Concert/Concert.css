@@ -45,6 +45,12 @@
 }
 
 
+.concert-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
 
 @keyframes spin {
     to {
@@ -129,7 +135,15 @@
     margin-bottom: 0.6rem;
     font-size: 0.95rem;
     color: #d1d1e0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Show max 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+
 
 .concert-price {
     color: #ff5c8d;
@@ -139,6 +153,41 @@
 
 
 .concert-link:hover {
-    background: linear-gradient(to right, #ff4785, #ff7aa8);
+    background: linear-gradient(to right, #ffce47, #b8df0e);
     box-shadow: 0 5px 15px rgba(255, 92, 141, 0.5);
+}
+
+
+
+/* Admin badge */
+.concert-card::after {
+
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 92, 141, 0.9);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .concert-info {
+        padding: 1.2rem;
+    }
+
+    .concert-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .favorite-icon,
+    .delete-icon {
+        width: 32px;
+        height: 32px;
+    }
 }

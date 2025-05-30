@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ConcertCard from "./ConcertCard";
 import './Concert.css';
+import { useSearch } from '../../Context/SearchContext';
 
 function ConcertList({ isAdmin }) {
+
+
     const [concerts, setConcerts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { searchTerm, searchResult, isSearching } = useSearch();
+
+
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/api/concerts`)

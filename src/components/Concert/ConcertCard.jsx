@@ -4,14 +4,25 @@ import { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa"; // npm install react-icons
 import './Concert.css';
 import { FaTrashAlt } from "react-icons/fa";
-
-
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function ConcertCard({ concert, isAdmin, onDelete }) {
     // const [concert, setConcert] = useState([]); //we want to ask the parent to delete this card not the card to delete itself so no useState here 
     const [isFavorited, setIsFavorited] = useState(false);
+    const navigate = useNavigate();
 
+
+
+    // the one responsible for adding it to fav
+    //routes/user.routes.js does the work to add it to backend
+    //add it to the  favorites in my user model, protects it with isAuthenticated
     const handleAddToFavorites = () => {
         const token = localStorage.getItem("authToken");
+
+        if (!token) {
+            toast.warning("You must be logged in to add a concert to favorites."); navigate("/login"); // redirige l'utilisateur
+            return;
+        }
 
         axios.post(
             `${import.meta.env.VITE_API_URL}/api/users/favorites/concerts/${concert._id}`,
@@ -20,12 +31,16 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
         )
             .then((res) => {
                 console.log("Added to favorites!", res.data);
+
+
                 setIsFavorited(true);
             })
             .catch((err) => {
                 console.error("Error adding to favorites:", err);
             });
     };
+
+
 
     const handleDelete = () => {
         const token = localStorage.getItem("authToken"); //for the server to know me 
@@ -43,6 +58,10 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
             });
 
     }
+
+
+
+
     console.log(concert)
 
     console.log(concert.image)
@@ -59,10 +78,10 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
                 <p className="concert-date">🗓 {new Date(concert.date).toLocaleDateString()}</p>
                 <p className="concert-price">{concert.price} €</p>
 
+
                 <Link to={`/concerts/${concert._id}`} className="concert-link">
                     Details
                 </Link>
-
 
                 <button
                     className="favorite-icon"
@@ -71,12 +90,17 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
                 >
                     {isFavorited ? <FaHeart className="filled" /> : <FaRegHeart />}
                 </button>
+
+
                 {/*if isAdmin true  display the delete button */}
                 {isAdmin && (
                     <button onClick={handleDelete} className="delete-icon" aria-label="Delete concert">
                         <FaTrashAlt />
                     </button>
                 )}
+
+
+
             </div>
         </div>
     );

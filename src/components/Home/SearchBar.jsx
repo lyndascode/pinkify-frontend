@@ -1,36 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useSearch } from "../../Context/SearchContext";
 function SearchBar({ onSearch }) {
-    const [searchTerm, setSearchTerm] = useState("");
+    const { handleSearch } = useSearch(); // Use context instead of props
+    const [inputValue, setInputValue] = useState('');
 
-    const handleInputChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-    const handleSearch = () => {
-        // Call the onSearch prop with the current search term
-        if (onSearch) {
-            onSearch(searchTerm);
-        }
-    };
-
-    const handleKeyPress = (event) => {
-        if (event.key === "Enter") {
-            handleSearch();
-        }
+    const handleSubmit = () => {
+        handleSearch(inputValue); // Send input to context
     };
 
     return (
         <section className="search-block">
             <input
-                type="text"
-                placeholder="Search by artist or city..."
-                value={searchTerm}
-                onChange={handleInputChange}
-                onKeyPress={handleKeyPress}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
             />
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSubmit}>Search</button>
+
         </section>
     );
 }

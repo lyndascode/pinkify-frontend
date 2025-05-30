@@ -1,25 +1,165 @@
+/* Navbar.css - Complete Cohesive Style */
 .navbar {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
+    padding: 1rem 2rem;
+    background: #1a1a2e;
+    /* Darker than card bg for contrast */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 92, 141, 0.2);
 }
 
-.navbar-links {
+/* Logo */
+.logo {
+    color: #ff5c8d;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
 
+    letter-spacing: -0.5px;
+}
+
+/* Navigation Links */
+.navbar-links {
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .navbar-links a {
-    color: rgb(255, 250, 250);
-
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.logo {
-    color: rgb(255, 81, 162);
-    font-weight: bold;
-    font-size: 2rem;
-    text-decoration: none;
+.navbar-links a:hover {
+    color: #ff8fab;
+}
+
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* Profile Dropdown */
+.DropdownTrigger {
+    background: transparent;
+    border: 2px solid rgba(255, 92, 141, 0.3);
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+}
+
+.DropdownTrigger:hover {
+    background: rgba(255, 92, 141, 0.2);
+    border-color: rgba(255, 92, 141, 0.5);
+}
+
+.DropdownContent {
+    background: #2a2a42;
+}
+
+/* DropdownContent Styles   */
+.DropdownContent {
+    max-width: auto;
+    background: #2a2a42;
+    border-radius: 8px;
+    padding: 8px;
+
+    /* subtle pink border */
+    border: none;
+    z-index: 1000;
+    /*incredible fluid animation*/
+    animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+
+    transform-origin: top center;
+}
+
+.DropdownItem {
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: #e2e2e2;
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.DropdownItem:hover {
+    background: rgba(255, 92, 141, 0.25);
+    color: white;
+    transform: translateX(2px);
+}
+
+
+
+/* Enhanced Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Add icons to dropdown items */
+.DropdownItem[data-icon="dashboard"]::before {
+    content: "★";
+    color: #ff5c8d;
+}
+
+.DropdownItem[data-icon="favorites"]::before {
+    content: "♥";
+    color: #ff5c8d;
+}
+
+.DropdownItem[data-icon="logout"]::before {
+    content: "→";
+    color: #ff6b6b;
+}
+
+/* Active Link Indicator */
+.active-nav-link {
+    color: #ff5c8d !important;
+}
+
+.active-nav-link::after {
+    width: 100% !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar-links {
+        gap: 1rem;
+    }
+
+    .navbar-links a {
+        font-size: 1rem;
+    }
 }

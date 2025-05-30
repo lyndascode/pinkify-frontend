@@ -1,52 +1,33 @@
-// SearchContext.js
 import { createContext, useState, useContext } from 'react';
 
+// 1. Create Context "Box"
 const SearchContext = createContext();
 
+// 2. Create Provider "Wrapper" 
 export const SearchProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
-    const [isSearching, setIsSearching] = useState(false);
 
-    const performSearch = async (term) => {
-        setIsSearching(true);
-        setSearchTerm(term);
-
-        // Here you would typically make an API call
-        // This is just a mock implementation
-        try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            // Mock results - replace with real API call
-            const mockResults = [
-                `Result 1 for ${term}`,
-                `Result 2 for ${term}`,
-                `Result 3 for ${term}`
-            ];
-
-            setSearchResults(mockResults);
-        } catch (error) {
-            console.error("Search failed:", error);
-            setSearchResults([]);
-        } finally {
-            setIsSearching(false);
-        }
+    // Simple function to update search term
+    const handleSearch = (term) => {
+        setSearchTerm(term.toLowerCase()); // Store lowercase for consistency
     };
 
+    // 3. Provide these values to children
     return (
         <SearchContext.Provider value={{
             searchTerm,
-            searchResults,
-            isSearching,
-            performSearch,
-            setSearchTerm
+            handleSearch // Passing the setter function
         }}>
             {children}
         </SearchContext.Provider>
     );
 };
 
+// 4. Hook for easy access
 export const useSearch = () => {
-    return useContext(SearchContext);
+    const context = useContext(SearchContext);
+    if (!context) {
+        throw new Error('useSearch must be used within SearchProvider');
+    }
+    return context;
 };

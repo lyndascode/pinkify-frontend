@@ -7,6 +7,7 @@ import UserProfile from "../components/Dashboard/UserProfile";
 import AdminPanel from "../components/Admin/AdminPannel";
 import './Dashoard.css';
 
+
 function Dashboard() {
     const [userData, setUserData] = useState(null);
     const [activeTab, setActiveTab] = useState("favorites");
@@ -85,6 +86,7 @@ function Dashboard() {
                 {activeTab === "profile" && <UserProfile user={userData} />}
                 {activeTab === "admin" && isAdmin && <AdminPanel />}
             </div>
+
         </div>
     );
 }

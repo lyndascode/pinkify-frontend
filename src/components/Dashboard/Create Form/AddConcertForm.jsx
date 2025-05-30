@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './CreateForm.css';
-
+import { toast } from "react-toastify";
 function AddConcertForm() {
     //formdata, is a box that saves info from the form  and setformdata just updates this box
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function AddConcertForm() {
             headers: { Authorization: `Bearer ${token}` }//give token as proof that user is connected 
         })
             .then(res => {
-                alert("Concert  added !"); //if everything well, display concert added 
+                toast.warning(" Concert  added !"); //if everything well, display concert added 
                 setFormData({ title: "", description: "", date: "", location: "", image: "", price: "", capacity: "" }); // reinitialize the form to default values 
                 navigate("/") //and go back to homepage 
             })

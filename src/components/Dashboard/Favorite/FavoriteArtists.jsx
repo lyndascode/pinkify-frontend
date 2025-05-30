@@ -4,6 +4,11 @@ import axios from "axios";
 import FavoriteArtistCard from "./FavoriteArtistCard";
 import ArtistCard from "../../Artists/ArtistCard";
 import './Favorite.css';
+
+
+//here the function responsible for displaying favorites artists in dashboard 
+
+
 function FavoriteArtists() {
     const [favoriteArtists, setFavoriteArtists] = useState([]);
     const [loading, setLoading] = useState(true);

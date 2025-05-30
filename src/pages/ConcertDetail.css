@@ -1,0 +1,107 @@
+/* ConcertDetails.css */
+
+.concert-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #2a2a42;
+    border-radius: 12px;
+    color: white;
+}
+
+.concert-details h1 {
+    font-size: 2.5rem;
+    color: #ff5c8d;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.concert-details img {
+
+
+
+    border-radius: 8px;
+    border: 3px solid #ff5c8d;
+    display: flex;
+    margin: 0 auto 2rem;
+}
+
+.concert-details p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.concert-details strong {
+    color: #ff8fab;
+
+}
+
+
+
+
+/* Add to your existing ConcertDetails.css or global CSS */
+
+.concert-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.edit-button {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+    /* Purple gradient */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.3);
+    text-align: center;
+}
+
+.edit-button:hover {
+    background: linear-gradient(to right, #4338ca, #6d28d9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .edit-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading State */
+.concert-details>p {
+    text-align: center;
+
+    color: #d1d1e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .concert-details {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .concert-details h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .concert-details {
+        padding: 1rem;
+    }
+
+    .concert-details p {
+        font-size: 1rem;
+    }
+}

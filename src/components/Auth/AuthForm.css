@@ -90,7 +90,8 @@ a {
 
     .login-form-container,
     .signup-form-container {
-        padding: 1.5rem;
+        padding: 3rem 1.5rem;
         margin: 1rem;
+        grid-area: auto;
     }
 }

@@ -38,8 +38,8 @@ function FavoriteConcerts() {
     return (
         <section className="favorite-concerts">
             <h2>Favorite Concerts</h2>
-            <p>Revivez les meilleurs lives de vos idols préférés !</p>
 
+            <p>  Your Favorite Concerts</p>
             <div className="favorite-grid">
                 {favorites.map((concert) => (
                     <div className="favorite-card" key={concert._id}>

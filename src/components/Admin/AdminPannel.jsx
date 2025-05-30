@@ -4,8 +4,18 @@ import AddArtistForm from "../Dashboard/Create Form/AddArtistForm";
 import ConcertList from "../Concert/ConcertList";
 import ArtistList from "../Artists/ArtistList";
 import './Admin.css'
+
+
 function AdminPanel() {
+
+
     const [activeForm, setActiveForm] = useState(null); //  concert  ou  artist 
+    const { isAdmin, isLoading } = useContext(AuthContext);
+
+
+    if (isLoading) return <p>Loading...</p>;
+
+    if (!isAdmin) return <p>Access denied. Admin privileges required.</p>;
 
     return (
         <div className="admin-panel">

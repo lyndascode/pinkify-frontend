@@ -4,7 +4,7 @@ import ConcertCard from "./ConcertCard";
 import './Concert.css';
 import { useSearch } from '../../Context/SearchContext';
 import { AuthContext } from "../../Context/auth.context"; // Direct context import
-function ConcertList() {
+function ConcertList({ showDeleteButtons = false }) {
 
     const { isAdmin } = useContext(AuthContext);
     const [concerts, setConcerts] = useState([]);
@@ -53,6 +53,7 @@ function ConcertList() {
                             key={concert._id}
                             concert={concert}
                             isAdmin={isAdmin}
+                            showDelete={showDeleteButtons}
                             onDelete={handleDeleteFromList}
                         />
                     ))}

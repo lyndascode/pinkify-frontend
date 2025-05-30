@@ -20,7 +20,7 @@ function HomePage() {
 
             <main className="main-section">
                 <PastConcerts searchTerm={searchTerm} />
-                <ConcertList searchTerm={searchTerm} />
+                <ConcertList searchTerm={searchTerm} showDeleteButtons={false} />
                 <ArtistList searchTerm={searchTerm} />
             </main>
         </div>

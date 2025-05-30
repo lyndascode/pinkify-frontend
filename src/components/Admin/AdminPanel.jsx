@@ -35,7 +35,7 @@ function AdminPanel() {
             </div>
 
             <div className="admin-content">
-                {activeForm === "concertList" && <ConcertList adminMode={true} />}
+                {activeForm === "concertList" && <ConcertList adminMode={true} showDeleteButtons={true} />}
                 {activeForm === "artistList" && <ArtistList adminMode={true} />}
             </div>
 

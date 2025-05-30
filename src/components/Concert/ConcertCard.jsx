@@ -6,7 +6,7 @@ import './Concert.css';
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-function ConcertCard({ concert, isAdmin, onDelete }) {
+function ConcertCard({ concert, isAdmin, onDelete, showDelete }) {
     // const [concert, setConcert] = useState([]); //we want to ask the parent to delete this card not the card to delete itself so no useState here 
     const [isFavorited, setIsFavorited] = useState(false);
     const navigate = useNavigate();
@@ -93,7 +93,7 @@ function ConcertCard({ concert, isAdmin, onDelete }) {
 
 
                 {/*if isAdmin true  display the delete button */}
-                {isAdmin && (
+                {showDelete && isAdmin && (
                     <button onClick={handleDelete} className="delete-icon" aria-label="Delete concert">
                         <FaTrashAlt />
                     </button>

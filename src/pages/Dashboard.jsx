@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import FavoriteArtists from "../components/Dashboard/Favorite/FavoriteArtists";
 import FavoriteConcerts from "../components/Dashboard/Favorite/FavoriteConcerts";
 import UserProfile from "../components/Dashboard/UserProfile";
-import AdminPanel from "../components/Admin/AdminPannel";
+import AdminPanel from "../components/Admin/AdminPanel";
 import './Dashoard.css';
 
 

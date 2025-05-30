@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import ConcertCard from "./ConcertCard";
 import './Concert.css';
 import { useSearch } from '../../Context/SearchContext';
+import { AuthContext } from "../../Context/auth.context"; // Direct context import
+function ConcertList() {
 
-function ConcertList({ isAdmin }) {
-
-
+    const { isAdmin } = useContext(AuthContext);
     const [concerts, setConcerts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { searchTerm, searchResult, isSearching } = useSearch();

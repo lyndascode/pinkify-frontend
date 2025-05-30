@@ -36,38 +36,33 @@
 
 }
 
-
-
-
-/* Add to your existing ConcertDetails.css or global CSS */
-
 .concert-actions {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
 }
 
 .edit-button {
     display: inline-block;
-    padding: 0.7rem 1.8rem;
-    background: linear-gradient(to right, #4f46e5, #7c3aed);
-    /* Purple gradient */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    background: #ff5c8d;
+    /* Subtle pink background */
+    color: #fff3f7;
+    border: 1px solid #ff5c8d;
+    border-radius: 20px;
     font-weight: 600;
-    font-size: 0.95rem;
+    text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.3);
-    text-align: center;
 }
 
 .edit-button:hover {
-    background: linear-gradient(to right, #4338ca, #6d28d9);
+    background: rgba(255, 92, 141, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 2px 8px rgba(255, 92, 141, 0.2);
 }
+
+
+
+
 
 /* Responsive adjustment */
 @media (max-width: 768px) {

@@ -35,7 +35,7 @@ h4 {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: #2a2a42;
+    background: transparent;
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -50,7 +50,7 @@ h4 {
 }
 
 .delete-icon:hover {
-    background: rgba(255, 77, 77, 0.4);
+
     color: #ff3131;
     transform: scale(1.1);
 }

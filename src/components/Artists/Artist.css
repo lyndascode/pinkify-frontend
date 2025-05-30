@@ -246,7 +246,7 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(255, 77, 77, 0.2);
+    background: transparent;
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -256,7 +256,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: #ff5c8d;
+    color: #ffebf1;
     z-index: 2;
 }
 

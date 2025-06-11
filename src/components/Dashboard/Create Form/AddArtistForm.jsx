@@ -1,40 +1,27 @@
+// components/AddArtistForm.jsx
 import { useState } from "react";
-import axios from "axios";
-import './CreateForm.css';
+import { useNavigate } from "react-router-dom";
+import useSubmitArtist from "../../../hooks/useSubmitArtist";
+import FormStatus from "./FormStatus";
 import { toast } from "react-toastify";
 
 function AddArtistForm() {
     const [formData, setFormData] = useState({
         name: "",
-        genre: "",
         bio: "",
-        image: "",
-        socialLinks: {
-            instagram: "",
-            youtube: ""
-        }
+        image: ""
     });
+
+    const [status, submitArtist] = useSubmitArtist();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const token = localStorage.getItem("authToken");
-
-        axios.post(`${import.meta.env.VITE_API_URL}/api/artists`, formData, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(res => {
-                toast.success(" Artist added!");
-                setFormData({
-                    name: "",
-                    genre: "",
-                    bio: "",
-                    image: "",
-                    socialLinks: { instagram: "", youtube: "" }
-                });
-            })
-            .catch(err => {
-                console.error("Error adding artist:", err);
-            });
+        submitArtist(formData).then(() => {
+            toast.success("Artist added!");
+            setFormData({ name: "", bio: "", image: "" });
+            navigate("/");
+        });
     };
 
     return (
@@ -43,7 +30,7 @@ function AddArtistForm() {
 
             <input
                 type="text"
-                placeholder="Name"
+                placeholder="Artist Name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
@@ -51,14 +38,7 @@ function AddArtistForm() {
 
             <input
                 type="text"
-                placeholder="Genre"
-                value={formData.genre}
-                onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-                required
-            />
-
-            <textarea
-                placeholder="Biography"
+                placeholder="Bio"
                 value={formData.bio}
                 onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
                 required
@@ -71,31 +51,8 @@ function AddArtistForm() {
                 onChange={(e) => setFormData({ ...formData, image: e.target.value })}
             />
 
-            <input
-                type="text"
-                placeholder="Instagram Link"
-                value={formData.socialLinks.instagram}
-                onChange={(e) =>
-                    setFormData({
-                        ...formData,
-                        socialLinks: { ...formData.socialLinks, instagram: e.target.value }
-                    })
-                }
-            />
-
-            <input
-                type="text"
-                placeholder="YouTube Link"
-                value={formData.socialLinks.youtube}
-                onChange={(e) =>
-                    setFormData({
-                        ...formData,
-                        socialLinks: { ...formData.socialLinks, youtube: e.target.value }
-                    })
-                }
-            />
-
             <button type="submit">Submit</button>
+            <FormStatus status={status} />
         </form>
     );
 }

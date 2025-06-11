@@ -19,9 +19,10 @@ function HomePage() {
             <SearchBar onSearch={handleSearch} /> {/* Pass handleSearch */}
 
             <main className="main-section">
-                <PastConcerts searchTerm={searchTerm} />
+
                 <ConcertList searchTerm={searchTerm} showDeleteButtons={false} />
                 <ArtistList searchTerm={searchTerm} />
+                <PastConcerts searchTerm={searchTerm} />
             </main>
         </div>
     );

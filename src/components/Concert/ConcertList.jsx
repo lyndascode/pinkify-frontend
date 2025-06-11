@@ -9,7 +9,7 @@ function ConcertList({ showDeleteButtons = false }) {
     const { isAdmin } = useContext(AuthContext);
     const [concerts, setConcerts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const { searchTerm, searchResult, isSearching } = useSearch();
+    const { searchTerm } = useSearch(); //to use searchbar context 
 
 
 
@@ -21,6 +21,7 @@ function ConcertList({ showDeleteButtons = false }) {
             })
             .catch((err) => {
                 console.error("Error fetching concerts:", err);
+                setIsLoading(false);
             })
     }, []);
 
@@ -28,7 +29,9 @@ function ConcertList({ showDeleteButtons = false }) {
         const newListConcert = concerts.filter((concert) => concert._id !== idToDelete);
         setConcerts(newListConcert);
     }
-
+    const filteredConcerts = concerts.filter(concert =>
+        concert.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return (
         <section className="concert-list">
             <div className="concert-list-header">
@@ -41,14 +44,14 @@ function ConcertList({ showDeleteButtons = false }) {
                     <div className="spinner"></div>
                     <p>Loading concerts...</p>
                 </div>
-            ) : concerts.length === 0 ? (
+            ) : filteredConcerts.length === 0 ? (
                 <div className="no-concerts">
                     <p>No upcoming concerts found</p>
                     <div className="pinkify-icon">🎤</div>
                 </div>
             ) : (
                 <div className="concert-grid">
-                    {concerts.map((concert) => (
+                    {filteredConcerts.map((concert) => (
                         <ConcertCard
                             key={concert._id}
                             concert={concert}

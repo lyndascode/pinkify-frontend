@@ -21,23 +21,22 @@ function App() {
         <Navbar />
 
 
-        <SearchProvider>
 
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/artists" element={<ArtistsPage />} />
-            <Route path="/artists/:id" element={<ArtistDetails />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/artists" element={<ArtistsPage />} />
+          <Route path="/artists/:id" element={<ArtistDetails />} />
 
-            <Route path="/concerts/:id" element={<ConcertDetails />} />
-            <Route path="/concerts" element={<ConcertPage />} />
-            <Route path="/concerts/edit/:id" element={<EditConcert />} />
+          <Route path="/concerts/:id" element={<ConcertDetails />} />
+          <Route path="/concerts" element={<ConcertPage />} />
+          <Route path="/concerts/edit/:id" element={<EditConcert />} />
 
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
-          </Routes>
-        </SearchProvider>
+        </Routes>
+
 
 
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />

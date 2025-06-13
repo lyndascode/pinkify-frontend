@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import './ArtistDetail.css'
 function ArtistDetails() {
     const { id } = useParams();
     const [artist, setArtist] = useState(null);
@@ -28,9 +28,9 @@ function ArtistDetails() {
             <h1>{artist.name}</h1>
             <img src={artist.image} alt={artist.name} style={{ width: "250px" }} />
             <p><strong>Genre:</strong> {artist.genre}</p>
-            <p>{artist.bio}</p>
+            <p><strong>Description:</strong> {artist.bio}</p>
 
-            {artist.socialLinks && (
+            <p> {artist.socialLinks && (
                 <div>
                     {artist.socialLinks.instagram && (
                         <p>
@@ -43,7 +43,7 @@ function ArtistDetails() {
                         </p>
                     )}
                 </div>
-            )}
+            )}</p>
         </div>
     );
 }

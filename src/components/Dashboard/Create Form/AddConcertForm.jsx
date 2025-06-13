@@ -6,11 +6,18 @@ import { toast } from "react-toastify";
 import useSubmitConcert from "../../../hooks/useSubmitConcert";
 import FormStatus from "./FormStatus";
 
-
 function AddConcertForm() {
     const [formData, setFormData] = useState({
-        title: "", description: "", date: "", location: "",
-        image: "", price: "", capacity: ""
+        title: "",
+        description: "",
+        date: "",
+        location: "",
+        image: "",
+        price: "",
+        capacity: "",
+        artists: [], // Added: Array of artist IDs (strings/ObjectIds)
+        ticketsSold: 0, // Added: Default to 0
+        createdBy: "" // Added: Admin user ID (populate this dynamically)
     });
 
     const navigate = useNavigate();
@@ -20,7 +27,18 @@ function AddConcertForm() {
         e.preventDefault();
         submitConcert(formData).then(() => {
             toast.warning("Concert added!");
-            setFormData({ title: "", description: "", date: "", location: "", image: "", price: "", capacity: "" });
+            setFormData({
+                title: "",
+                description: "",
+                date: "",
+                location: "",
+                image: "",
+                price: "",
+                capacity: "",
+                artists: [],
+                ticketsSold: 0,
+                createdBy: ""
+            });
             navigate("/");
         });
     };
@@ -29,7 +47,7 @@ function AddConcertForm() {
         <form onSubmit={handleSubmit} className="admin-form">
             <h4>Add New Concert</h4>
 
-            {/* Tous les inputs */}
+            {/* Existing fields */}
             {["title", "description", "location", "image", "price", "capacity"].map((field) => (
                 <input
                     key={field}
@@ -40,6 +58,23 @@ function AddConcertForm() {
                     required={field !== "image"}
                 />
             ))}
+
+            {/* New Fields */}
+            <input
+                type="text"
+                placeholder="Artist IDs  "
+                value={formData.artists.join(",")} // Assume input is comma-separated IDs
+                onChange={(e) =>
+                    setFormData({ ...formData, artists: e.target.value.split(",") })
+                }
+                required
+            />
+
+            <input
+                type="hidden"
+                value={formData.createdBy}
+
+            />
 
             <input
                 type="date"

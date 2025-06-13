@@ -9,7 +9,7 @@ function ArtistDetails() {
 
     useEffect(() => {
         axios
-            .get(`${import.meta.env.VITE_API_URL} /api/artists/${id}`)
+            .get(`${import.meta.env.VITE_API_URL}/api/artists/${id}`)
             .then((res) => {
                 setArtist(res.data);
                 setIsLoading(false);

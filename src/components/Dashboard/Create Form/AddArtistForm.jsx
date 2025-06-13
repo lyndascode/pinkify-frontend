@@ -11,7 +11,7 @@ function AddArtistForm() {
         bio: "",
         image: ""
     });
-
+    //Chaque input est lié à formData via value={formData.title} etc 
     const [status, submitArtist] = useSubmitArtist();
     const navigate = useNavigate();
 
@@ -49,6 +49,18 @@ function AddArtistForm() {
                 placeholder="Image URL"
                 value={formData.image}
                 onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+            />
+            <input
+                type="url"
+                placeholder="Instagram URL"
+                value={formData.instagram}
+                onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
+            />
+            <input
+                type="url"
+                placeholder="YouTube URL"
+                value={formData.youtube}
+                onChange={(e) => setFormData({ ...formData, youtube: e.target.value })}
             />
 
             <button type="submit">Submit</button>

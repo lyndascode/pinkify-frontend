@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import '../Navbar/navbar.css';
 import ProfileDropdown from './ProfileDropdown';
-import { AuthContext } from "../../context/auth.context"; //   import AuthContext
+import { AuthContext } from "../../Context/auth.context"; //   import AuthContext
 
 function Navbar() {
     const { isLoggedIn, user, logOutUser, isAdmin } = useContext(AuthContext); // ✅ access auth state
